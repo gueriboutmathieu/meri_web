@@ -17,6 +17,13 @@ pnpm install
 
 ## Development Server
 
+You need to create a `.env` file with these values:
+```
+NUXT_PUBLIC_OPENAI_API_KEY=<your-openai-api-key>
+NUXT_PUBLIC_OPENAI_STT_MODEL=<openai-stt-model>
+NUXT_PUBLIC_OPENAI_TTS_MODEL=<openai-tts-model>
+```
+
 Start the development server on `http://localhost:3000`:
 
 ```shell
