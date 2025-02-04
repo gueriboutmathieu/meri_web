@@ -22,7 +22,11 @@ jobs:
           npm install -g pnpm
 
       - name: Install dependencies
-        run: pnpm i
+        run: |
+          source $HOME/.bashrc
+          pnpm i
 
       - name: Prettier (code formatter)
-        run: pnpm prettier --check .
+        run: |
+          source $HOME/.bashrc
+          pnpm prettier --check .
