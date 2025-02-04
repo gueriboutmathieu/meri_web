@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install and setup fnm and pnpm
+        shell: bash
         run: |
           curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
           echo 'export PATH="$HOME/.fnm:$PATH"' >> $HOME/.bashrc
@@ -22,12 +23,14 @@ jobs:
           npm install -g pnpm
 
       - name: Install dependencies
+        shell: bash
         run: |
           echo /home/runner/.bashrc
           # source $HOME/.bashrc
           # pnpm i
 
       - name: Prettier (code formatter)
+        shell: bash
         run: |
           source $HOME/.bashrc
           pnpm prettier --check .
