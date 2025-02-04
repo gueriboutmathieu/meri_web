@@ -1,0 +1,9 @@
+name: On commit on PR
+
+on: pull_request
+
+jobs:
+  check-typescript-code:
+    name: Check typescript code
+    uses: ./.github/workflows/callable__check_typescript_code.yaml
+    secrets: inherit
