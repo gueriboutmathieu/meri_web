@@ -12,8 +12,8 @@ jobs:
 
       - name: Install and setup fnm and pnpm
         run: |
-          curl -fsSL https://fnm.vercel.app/install | bash
-          source /home/runner/.bashrc
+          curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
+          export PATH="./.fnm:$PATH"
           eval "$(fnm env --use-on-cd --shell bash)"
           fnm install 22
           fnm use 22
