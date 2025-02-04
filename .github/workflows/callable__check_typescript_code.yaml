@@ -20,9 +20,11 @@ jobs:
           npm install -g pnpm
 
       - name: Install dependencies
-        working-directory: .
-        run: pnpm i
+        run: |
+          eval "$(fnm env --use-on-cd --shell bash)"
+          pnpm i
 
       - name: Prettier (code formatter)
-        working-directory: .
-        run: pnpm prettier --check .
+        run: |
+          eval "$(fnm env --use-on-cd --shell bash)"
+          pnpm prettier --check .
