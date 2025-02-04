@@ -24,8 +24,8 @@ jobs:
       - name: Install dependencies
         run: |
           echo $HOME/.bashrc
-          source $HOME/.bashrc
-          pnpm i
+          # source $HOME/.bashrc
+          # pnpm i
 
       - name: Prettier (code formatter)
         run: |
