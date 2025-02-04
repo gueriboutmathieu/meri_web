@@ -9,6 +9,6 @@ fontawesomeLibrary.add(fas);
 fontawesomeLibrary.add(far);
 fontawesomeLibrary.add(fab);
 
-export default defineNuxtPlugin(function(nuxtApp) {
-    nuxtApp.vueApp.component("FontAwesomeIcon", FontAwesomeIcon)
+export default defineNuxtPlugin(function (nuxtApp) {
+    nuxtApp.vueApp.component("FontAwesomeIcon", FontAwesomeIcon);
 });

@@ -7,9 +7,9 @@ export function createLlmService(): LlmService {
 
     const query = async function (prompt: string): Promise<string> {
         const query = `${baseUrl}/query?user_prompt=${prompt}`;
-        const response = await fetch(query, {method: "POST"});
+        const response = await fetch(query, { method: "POST" });
         return await response.json();
     };
 
-    return {query};
+    return { query };
 }

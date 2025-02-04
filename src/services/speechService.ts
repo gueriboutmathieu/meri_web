@@ -6,11 +6,11 @@ export type SpeechService = {
 };
 
 export function createSpeechService(apiKey: string, sttModel: string, ttsModel: string): SpeechService {
-    const client = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true});
+    const client = new OpenAI({ apiKey: apiKey, dangerouslyAllowBrowser: true });
 
     const speechToText = async function (audio: Blob): Promise<string> {
         const transcription = await client.audio.transcriptions.create({
-            file: new File([audio], "audio.wav", {type: "audio/wav"}),
+            file: new File([audio], "audio.wav", { type: "audio/wav" }),
             model: sttModel,
         });
         return transcription.text;
@@ -26,6 +26,5 @@ export function createSpeechService(apiKey: string, sttModel: string, ttsModel: 
         return await speech.blob();
     };
 
-
-    return {speechToText, textToSpeech};
+    return { speechToText, textToSpeech };
 }

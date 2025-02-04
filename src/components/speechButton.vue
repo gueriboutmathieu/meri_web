@@ -47,12 +47,14 @@ const emit = defineEmits<{
 }>();
 
 const stateStore = useNuxtApp().$stateStore as StateStore;
-const state = computed(function() { return stateStore.state.appState });
+const state = computed(function () {
+    return stateStore.state.appState;
+});
 
 const stream = ref<MediaStream | undefined>(undefined);
 const mediaRecorder = ref<MediaRecorder | undefined>(undefined);
 
-onMounted(async function() {
+onMounted(async function () {
     stream.value = await navigator.mediaDevices.getUserMedia({ audio: true });
     mediaRecorder.value = new MediaRecorder(stream.value);
     stateStore.setState(appState.ready);
@@ -64,18 +66,15 @@ async function startRecording(): Promise<void> {
 
     let audioChunks: Blob[] = [];
 
-    mediaRecorder.value!.ondataavailable = async function(event) {
+    mediaRecorder.value!.ondataavailable = async function (event) {
         if (event.data.size > 0) {
             audioChunks.push(event.data);
         }
     };
 
-    mediaRecorder.value!.onstop = async function() {
-        emit(
-            "recordedAudio",
-            new Blob(audioChunks, { type: "audio/wav" })
-        );
-    }
+    mediaRecorder.value!.onstop = async function () {
+        emit("recordedAudio", new Blob(audioChunks, { type: "audio/wav" }));
+    };
 
     mediaRecorder.value!.start();
 }

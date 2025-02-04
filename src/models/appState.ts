@@ -4,6 +4,6 @@ export const appState = {
     recording: "recording",
     waitingForResponse: "waitingForResponse",
     playingResponse: "playingResponse",
-}
+};
 
-export type AppState = typeof appState[keyof typeof appState];
+export type AppState = (typeof appState)[keyof typeof appState];

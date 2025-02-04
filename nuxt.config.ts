@@ -1,12 +1,9 @@
 export default defineNuxtConfig({
     compatibilityDate: "2024-11-01",
-    devtools: {enabled: true},
+    devtools: { enabled: true },
     srcDir: "src/",
     modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
-    css: [
-        "@/assets/css/tailwind.css",
-        "@fortawesome/fontawesome-svg-core/styles.css",
-    ],
+    css: ["@/assets/css/tailwind.css", "@fortawesome/fontawesome-svg-core/styles.css"],
     tailwindcss: {
         exposeConfig: true,
         config: {
@@ -33,7 +30,7 @@ export default defineNuxtConfig({
                 apiKey: process.env.OPENAI_API_KEY,
                 sttModel: process.env.OPENAI_STT_MODEL,
                 ttsModel: process.env.OPENAI_TTS_MODEL,
-            }
-        }
+            },
+        },
     },
 });

@@ -27,10 +27,10 @@ async function onRecordedAudio(audioBytes: Blob): Promise<void> {
     const speech = await speechService.textToSpeech(response);
     llmResponse.value = response;
     const audio = new Audio(URL.createObjectURL(speech));
-    audio.onplay = function() {
+    audio.onplay = function () {
         stateStore.setState(appState.playingResponse);
     };
-    audio.onended = function() {
+    audio.onended = function () {
         stateStore.setState(appState.ready);
     };
     await audio.play();

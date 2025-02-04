@@ -9,7 +9,7 @@ import { createLlmService, type LlmService } from "@/services/llmService";
 import { createSpeechService, type SpeechService } from "@/services/speechService";
 import { createStateStore, type StateStore } from "@/stores/stateStore";
 
-const runtimeConfig = useRuntimeConfig()
+const runtimeConfig = useRuntimeConfig();
 
 const llmService: LlmService = createLlmService();
 const speechService: SpeechService = createSpeechService(
