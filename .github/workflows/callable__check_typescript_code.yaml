@@ -13,6 +13,8 @@ jobs:
       - name: Install and setup fnm and pnpm
         run: |
           curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
+          echo 'export PATH="$HOME/.fnm:$PATH"' >> $HOME/.bashrc
+          echo 'eval "$(fnm env --use-on-cd --shell bash)"' >> $HOME/.bashrc
           export PATH="./.fnm:$PATH"
           eval "$(fnm env --use-on-cd --shell bash)"
           fnm install 22
@@ -20,11 +22,7 @@ jobs:
           npm install -g pnpm
 
       - name: Install dependencies
-        run: |
-          eval "$(fnm env --use-on-cd --shell bash)"
-          pnpm i
+        run: pnpm i
 
       - name: Prettier (code formatter)
-        run: |
-          eval "$(fnm env --use-on-cd --shell bash)"
-          pnpm prettier --check .
+        run: pnpm prettier --check .
