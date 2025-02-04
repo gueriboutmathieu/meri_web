@@ -6,9 +6,6 @@ jobs:
   check-typescript-code:
     name: Check typescript code
     runs-on: ubuntu-latest
-    permissions: # for py-cov-action
-      pull-requests: write
-      contents: write
 
     steps:
       - uses: actions/checkout@v4

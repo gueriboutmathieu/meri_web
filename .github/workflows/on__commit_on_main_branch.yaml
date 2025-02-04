@@ -16,5 +16,3 @@ jobs:
     uses: ./.github/workflows/callable__build_and_release.yaml
     needs: check-typescript-code
     secrets: inherit
-    with:
-      package-name: "meri_web"
