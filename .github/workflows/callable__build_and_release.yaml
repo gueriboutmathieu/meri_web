@@ -38,21 +38,23 @@ jobs:
 
       - name: Install and setup fnm and pnpm
         run: |
-          curl -fsSL https://fnm.vercel.app/install | bash
+          curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
+          export PATH="./.fnm:$PATH"
           eval "$(fnm env --use-on-cd --shell bash)"
           fnm install 22
           fnm use 22
           npm install -g pnpm
 
       - name: Install dependencies
-        working-directory: .
-        run: pnpm i
+        run: |
+          export PATH="./.fnm:$PATH"
+          eval "$(fnm env --use-on-cd --shell bash)"
+          pnpm i
 
       - name: Set up Git user
         uses: fregante/setup-git-user@v2
 
       - name: Create tag
-        id: create_tag
         run: |
           VERSION=${{ needs.check-release-tag.outputs.version }}
           git tag -a $VERSION -m "Release version $VERSION"
