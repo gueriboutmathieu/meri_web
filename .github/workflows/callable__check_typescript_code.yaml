@@ -23,6 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          echo $HOME/.bashrc
           source $HOME/.bashrc
           pnpm i
 
