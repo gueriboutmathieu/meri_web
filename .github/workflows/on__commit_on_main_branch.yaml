@@ -8,11 +8,11 @@ on:
 jobs:
   check-typescript-code:
     name: Check typescript code
-    uses: ./.github/workflows/callable__check_typescript_code.yaml
+    uses: gueriboutmathieu/typescript_utils/.github/workflows/callable__check_typescript_code.yaml@main
     secrets: inherit
 
   build-and-release:
     name: Build and release
-    uses: ./.github/workflows/callable__build_and_release.yaml
+    uses: gueriboutmathieu/typescript_utils/.github/workflows/callable__build_and_release.yaml@main
     needs: check-typescript-code
     secrets: inherit

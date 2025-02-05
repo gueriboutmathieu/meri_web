@@ -5,5 +5,5 @@ on: pull_request
 jobs:
   check-typescript-code:
     name: Check typescript code
-    uses: ./.github/workflows/callable__check_typescript_code.yaml
+    uses: gueriboutmathieu/typescript_utils/.github/workflows/callable__check_typescript_code.yaml@main
     secrets: inherit
